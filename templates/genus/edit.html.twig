@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Genus{% endblock %}
+
+{% block body %}
+    <h1>Edit Genus</h1>
+
+    {{ include('genus/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_genus_index') }}">back to list</a>
+
+    {{ include('genus/_delete_form.html.twig') }}
+{% endblock %}
