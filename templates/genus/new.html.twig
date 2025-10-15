@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Genus{% endblock %}
+
+{% block body %}
+    <h1>Create new Genus</h1>
+
+    {{ include('genus/_form.html.twig') }}
+
+    <a href="{{ path('app_genus_index') }}">back to list</a>
+{% endblock %}
