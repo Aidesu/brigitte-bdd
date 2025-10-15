@@ -1,3 +1,24 @@
 body {
-    background-color: skyblue;
+    background-color: rgb(110, 3, 80);
+    color: white;
+}
+
+a {
+    color: aqua;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    border: solid white 1px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+th {
+    border: solid white 1px;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
