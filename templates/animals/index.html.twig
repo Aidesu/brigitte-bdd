@@ -15,6 +15,11 @@
                 <th>Birth_date</th>
                 <th>Arriving_date</th>
                 <th>Comment</th>
+                <th>Family</th>
+                <th>Orders</th>
+                <th>Species</th>
+                <th>Genus</th>
+            
                 <th>actions</th>
             </tr>
         </thead>
@@ -28,6 +33,10 @@
                 <td>{{ animal.birthDate ? animal.birthDate|date('Y-m-d') : '' }}</td>
                 <td>{{ animal.arrivingDate ? animal.arrivingDate|date('Y-m-d') : '' }}</td>
                 <td>{{ animal.comment }}</td>
+                 <td>{{ animal.familiy.name|default("nothing")}}</td>
+                   <td>{{ animal.species.name|default("nothing")}}</td>
+                     <td>{{ animal.genus.name|default("nothing")}}</td>
+                       <td>{{ animal.actions.name|default("nothing")}}</td>
                 <td>
                     <a href="{{ path('app_animals_show', {'id': animal.id}) }}">show</a>
                     <a href="{{ path('app_animals_edit', {'id': animal.id}) }}">edit</a>
