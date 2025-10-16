@@ -18,22 +18,22 @@ class Animals
     private ?Familiy $family_id = null;
 
     #[ORM\ManyToOne(inversedBy: 'animals')]
-    private ?genus $genus = null;
+    private ?Genus $genus = null;
 
     #[ORM\ManyToOne(inversedBy: 'animals')]
-    private ?species $species = null;
+    private ?Species $species = null;
 
     #[ORM\ManyToOne(inversedBy: 'animals')]
-    private ?orders $orders = null;
+    private ?Orders $orders = null;
 
     #[ORM\ManyToOne(inversedBy: 'children')]
-    private ?animals $parent = null;
+    private ?Animals $parent = null;
 
     #[ORM\OneToOne(inversedBy: 'animal', cascade: ['persist', 'remove'])]
     private ?MedicalBooklet $medical_booklet = null;
 
     #[ORM\ManyToOne(inversedBy: 'animals')]
-    private ?menu $menu = null;
+    private ?Menu $menu = null;
 
     #[ORM\Column(length: 100)]
     private ?string $name = null;
