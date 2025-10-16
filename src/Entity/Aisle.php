@@ -18,19 +18,16 @@ private ?int $id = null;
 #[ORM\Column(length: 255)]
 private ?string $name = null;
 
-#[ORM\Column(length: 255)]
+#[ORM\Column(length: 255, nullable: true)]
 private ?string $description = null;
 
-#[ORM\Column(length: 255)]
+#[ORM\Column(length: 255, nullable: true)]
 private ?string $floor = null;
 
-#[ORM\Column(length: 255)]
+#[ORM\Column(length: 255, nullable: true)]
 private ?string $block = null;
 
-/**
-* @var Collection<int, Cage>
-*/
-#[ORM\OneToMany(targetEntity: Cage::class, mappedBy: 'aisles')]
+#[ORM\OneToMany(targetEntity: Cage::class, mappedBy: 'aisle')]
 private Collection $cages;
 
 public function __construct()
@@ -59,7 +56,7 @@ public function getDescription(): ?string
 return $this->description;
 }
 
-public function setDescription(string $description): static
+public function setDescription(?string $description): static
 {
 $this->description = $description;
 return $this;
@@ -70,7 +67,7 @@ public function getFloor(): ?string
 return $this->floor;
 }
 
-public function setFloor(string $floor): static
+public function setFloor(?string $floor): static
 {
 $this->floor = $floor;
 return $this;
@@ -81,7 +78,7 @@ public function getBlock(): ?string
 return $this->block;
 }
 
-public function setBlock(string $block): static
+public function setBlock(?string $block): static
 {
 $this->block = $block;
 return $this;
@@ -99,7 +96,7 @@ public function addCage(Cage $cage): static
 {
 if (!$this->cages->contains($cage)) {
 $this->cages->add($cage);
-$cage->setAisles($this);
+$cage->setAisle($this);
 }
 return $this;
 }
@@ -107,8 +104,8 @@ return $this;
 public function removeCage(Cage $cage): static
 {
 if ($this->cages->removeElement($cage)) {
-if ($cage->getAisles() === $this) {
-$cage->setAisles(null);
+if ($cage->getAisle() === $this) {
+$cage->setAisle(null);
 }
 }
 return $this;

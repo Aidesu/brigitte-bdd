@@ -10,12 +10,12 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>BirtDate</th>
+                <th>BirthDate</th>
                 <th>Gender</th>
                 <th>City</th>
                 <th>Role</th>
-                <th>Aisle</th>
-                <th>actions</th>
+                <th>Aisles</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -23,11 +23,15 @@
             <tr>
                 <td>{{ staff.id }}</td>
                 <td>{{ staff.name }}</td>
-                <td>{{ staff.birtDate }}</td>
+                <td>{{ staff.birthDate }}</td>
                 <td>{{ staff.gender }}</td>
                 <td>{{ staff.city }}</td>
-                <td>{{ staff.role }}</td>
-                <td>{{ staff.aisle }}</td>
+                <td>{{ staff.role.name }}</td>
+                <td>
+                    {% for aisle in staff.aisles %}
+                        {{ aisle.name }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
                 <td>
                     <a href="{{ path('app_staffs_show', {'id': staff.id}) }}">show</a>
                     <a href="{{ path('app_staffs_edit', {'id': staff.id}) }}">edit</a>
@@ -35,7 +39,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8">No records found</td>
             </tr>
         {% endfor %}
         </tbody>

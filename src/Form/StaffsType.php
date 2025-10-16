@@ -16,10 +16,18 @@ class StaffsType extends AbstractType
 public function buildForm(FormBuilderInterface $builder, array $options): void
 {
 $builder
-->add('name')
-->add('birthDate') // Исправлено: у тебя было birtDate
-->add('gender')
-->add('city')
+->add('name', null, [
+'label' => 'Full Name',
+])
+->add('birthDate', null, [
+'label' => 'Date of Birth',
+])
+->add('gender', null, [
+'label' => 'Gender',
+])
+->add('city', null, [
+'label' => 'City',
+])
 ->add('role', EntityType::class, [
 'class' => Role::class,
 'choice_label' => 'name',
@@ -27,17 +35,19 @@ $builder
 ])
 ->add('cages', EntityType::class, [
 'class' => Cage::class,
-'choice_label' => 'type', // или другое поле
+'choice_label' => 'number', 
 'multiple' => true,
-'expanded' => true,
+'expanded' => true, 
 'label' => 'Cages',
+'by_reference' => false, 
 ])
 ->add('aisles', EntityType::class, [
 'class' => Aisle::class,
-'choice_label' => 'name',
+'choice_label' => 'name', 
 'multiple' => true,
 'expanded' => true,
 'label' => 'Aisles',
+'by_reference' => false, 
 ]);
 }
 
@@ -48,4 +58,3 @@ $resolver->setDefaults([
 ]);
 }
 }
-
