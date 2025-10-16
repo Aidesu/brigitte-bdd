@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Animals;
-use App\Entity\animals;
 use App\Entity\Familiy;
 use App\Entity\genus;
 use App\Entity\MedicalBooklet;
