@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Genus{% endblock %}
+
+{% block body %}
+    <h1>Genus</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ genu.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ genu.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_genus_index') }}">back to list</a>
+
+    <a href="{{ path('app_genus_edit', {'id': genu.id}) }}">edit</a>
+
+    {{ include('genus/_delete_form.html.twig') }}
+{% endblock %}
