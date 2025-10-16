@@ -88,6 +88,7 @@ footer {
     height: 10rem;
     display: flex;
     align-items: center;
+    margin-top: 5rem;
 }
 
 footer ul {
@@ -230,4 +231,56 @@ button {
     padding: 2rem;
     height: 60rem;
     border-radius: 15px;
+}
+
+#mainAdoptPicture {
+    background-image: url("https://media.discordapp.net/attachments/1388124417258688523/1428446389637222410/Tilly-with-her-first-child-Monty-scaled-1920x1282.png?ex=68f287de&is=68f1365e&hm=aef3576d5d3b7a914455742b31ffaef8cedec0f5ba2e47656dc48bad1062276b&=&format=webp&quality=lossless&width=1660&height=1109");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+#mainAdoptPicture h2 {
+    font-size: 75px;
+    margin-left: 5rem;
+    text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+        1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+}
+
+#animalCardSection {
+    width: 80%;
+    margin: 5rem auto;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 45% 45%;
+}
+
+#animalCard {
+    background-color: #25252597;
+    display: flex;
+    width: 30rem;
+    justify-content: space-between;
+    border-radius: 15px;
+}
+
+#animalCard ul {
+    list-style: none;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#animalCard li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#animalCard p {
+    font-size: 25px;
 }
