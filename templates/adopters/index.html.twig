@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adopters index{% endblock %}
+
+{% block body %}
+    <h1>Adopters index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Firth_name</th>
+                <th>Last_name</th>
+                <th>Address</th>
+                <th>Country</th>
+                <th>City</th>
+                <th>Zip_code</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for adopter in adopters %}
+            <tr>
+                <td>{{ adopter.id }}</td>
+                <td>{{ adopter.firthName }}</td>
+                <td>{{ adopter.lastName }}</td>
+                <td>{{ adopter.address }}</td>
+                <td>{{ adopter.country }}</td>
+                <td>{{ adopter.city }}</td>
+                <td>{{ adopter.zipCode }}</td>
+                <td>
+                    <a href="{{ path('app_adopters_show', {'id': adopter.id}) }}">show</a>
+                    <a href="{{ path('app_adopters_edit', {'id': adopter.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_adopters_new') }}">Create new</a>
+{% endblock %}

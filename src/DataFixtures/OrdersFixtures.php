@@ -11,15 +11,15 @@ class OrdersFixtures extends Fixture
     {
  
         $ordersArray=[
-    "Carnivora",	
-	"Primates",	
-	"Rodentia",	
-	"Lagomorpha",	
-	"Artiodactyla",	
-	"Squamata",	
-	"Crocodylia",	
-	"Rhynchocephalia",	
-	"Gymnophiona",	
+    "Carnivora",
+	"Primates",
+	"Rodentia",
+	"Lagomorpha",
+	"Artiodactyla",
+	"Squamata",
+	"Crocodylia",
+	"Rhynchocephalia",
+	"Gymnophiona",
     "Salmoniformes",
 	"Siluriformes",
         ];
