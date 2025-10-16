@@ -88,6 +88,7 @@ footer {
     height: 10rem;
     display: flex;
     align-items: center;
+    margin-top: 5rem;
 }
 
 footer ul {
