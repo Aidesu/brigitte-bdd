@@ -31,23 +31,23 @@ class AnimalsType extends AbstractType
             ->add('comment')
             ->add('family_id', EntityType::class, [
                 'class' => Familiy::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
             ->add('genus', EntityType::class, [
                 'class' => genus::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
             ->add('species', EntityType::class, [
                 'class' => species::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
             ->add('orders', EntityType::class, [
                 'class' => orders::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
             ->add('parent', EntityType::class, [
                 'class' => animals::class,
-                'choice_label' => 'id',
+                'choice_label' => 'name',
             ])
             ->add('medical_booklet', EntityType::class, [
                 'class' => MedicalBooklet::class,
@@ -55,7 +55,7 @@ class AnimalsType extends AbstractType
             ])
             ->add('menu', EntityType::class, [
                 'class' => menu::class,
-                'choice_label' => 'id',
+                'choice_label' => 'type',
             ])
         ;
     }
