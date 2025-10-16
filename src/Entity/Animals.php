@@ -53,6 +53,9 @@ class Animals
     #[ORM\Column(length: 500)]
     private ?string $comment = null;
 
+    #[ORM\ManyToOne(inversedBy: 'animals')]
+    private ?Adopters $adopters = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -210,6 +213,18 @@ class Animals
     public function setComment(string $comment): static
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function getAdopters(): ?Adopters
+    {
+        return $this->adopters;
+    }
+
+    public function setAdopters(?Adopters $adopters): static
+    {
+        $this->adopters = $adopters;
 
         return $this;
     }
