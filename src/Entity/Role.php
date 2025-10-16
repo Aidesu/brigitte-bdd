@@ -6,7 +6,7 @@ use App\Repository\RoleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
+#[ORM\Table(name: "roles")]
 #[ORM\Entity(repositoryClass: RoleRepository::class)]
 class Role
 {
@@ -67,7 +67,7 @@ class Role
     public function removeStaff(Staffs $staff): static
     {
         if ($this->staffs->removeElement($staff)) {
-            // set the owning side to null (unless already changed)
+            
             if ($staff->getStaff() === $this) {
                 $staff->setStaff(null);
             }

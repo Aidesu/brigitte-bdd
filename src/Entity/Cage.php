@@ -5,7 +5,7 @@ namespace App\Entity;
 use App\Repository\CageRepository;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Aisle;
-
+#[ORM\Table(name: "cages")]
 #[ORM\Entity(repositoryClass: CageRepository::class)]
 class Cage
 {
