@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Aisle{% endblock %}
+
+{% block body %}
+    <h1>Create new Aisle</h1>
+
+    {{ include('aisle/_form.html.twig') }}
+
+    <a href="{{ path('app_aisle_index') }}">back to list</a>
+{% endblock %}
