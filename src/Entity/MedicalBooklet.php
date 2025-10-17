@@ -34,6 +34,9 @@ class MedicalBooklet
     #[ORM\ManyToMany(targetEntity: Vaccines::class, inversedBy: 'medicalBooklets')]
     private Collection $vaccine;
 
+    #[ORM\OneToOne(mappedBy: 'medical_booklet', cascade: ['persist', 'remove'])]
+    private ?Animals $animal = null;
+
     public function __construct()
     {
         $this->disease = new ArrayCollection();
@@ -113,6 +116,28 @@ class MedicalBooklet
     public function removeVaccine(Vaccines $vaccine): static
     {
         $this->vaccine->removeElement($vaccine);
+
+        return $this;
+    }
+
+    public function getAnimal(): ?Animals
+    {
+        return $this->animal;
+    }
+
+    public function setAnimal(?Animals $animal): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($animal === null && $this->animal !== null) {
+            $this->animal->setMedicalBooklet(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($animal !== null && $animal->getMedicalBooklet() !== $this) {
+            $animal->setMedicalBooklet($this);
+        }
+
+        $this->animal = $animal;
 
         return $this;
     }

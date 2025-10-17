@@ -11,6 +11,8 @@
                 <th>Id</th>
                 <th>Vaccine_date</th>
                 <th>Vaccine_next_day</th>
+                <th>Disease</th>
+                <th>Vaccine</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,6 +22,24 @@
                 <td>{{ medical_booklet.id }}</td>
                 <td>{{ medical_booklet.vaccineDate ? medical_booklet.vaccineDate|date('Y-m-d') : '' }}</td>
                 <td>{{ medical_booklet.vaccineNextDay ? medical_booklet.vaccineNextDay|date('Y-m-d') : '' }}</td>
+                <td>
+    {% if medical_booklet.disease is not empty %}
+        {% for disease in medical_booklet.disease %}
+            {{ disease.name }}<br>
+        {% endfor %}
+    {% else %}
+        no entry
+    {% endif %}
+</td>
+                <td>
+    {% if medical_booklet.vaccine is not empty %}
+        {% for vaccine in medical_booklet.vaccine %}
+            {{ vaccine.name }}<br>
+        {% endfor %}
+    {% else %}
+        no entry
+    {% endif %}
+</td>
                 <td>
                     <a href="{{ path('app_medical_booklet_show', {'id': medical_booklet.id}) }}">show</a>
                     <a href="{{ path('app_medical_booklet_edit', {'id': medical_booklet.id}) }}">edit</a>
