@@ -16,4 +16,12 @@ class AdoptAnimals extends AbstractController {
             'animals' => $animalsRepository->findAll(),
         ]);
     }
+
+    #[Route('/adopt/animal/{id}', name: 'app_adopt_animal')]
+    public function adoptAnimalPage(AnimalsRepository $animalsRepository, int $id): Response {
+        return $this->render("adoptAnimals/animal.html.twig", [
+            'animal' => $animalsRepository->find($id),
+        ]);
+
+    }
 }
