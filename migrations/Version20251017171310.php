@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20251017072107 extends AbstractMigration
+final class Version20251017171310 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -37,6 +37,7 @@ final class Version20251017072107 extends AbstractMigration
         $this->addSql('CREATE TABLE staffs (id INT AUTO_INCREMENT NOT NULL, role_id INT NOT NULL, name VARCHAR(255) NOT NULL, birth_date VARCHAR(255) NOT NULL, gender VARCHAR(255) NOT NULL, city VARCHAR(255) NOT NULL, INDEX IDX_54D5390D60322AC (role_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE staffs_cage (staffs_id INT NOT NULL, cage_id INT NOT NULL, INDEX IDX_60853C02A94E7F (staffs_id), INDEX IDX_60853C05A70E5B7 (cage_id), PRIMARY KEY(staffs_id, cage_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE staffs_aisle (staffs_id INT NOT NULL, aisle_id INT NOT NULL, INDEX IDX_1217BD32A94E7F (staffs_id), INDEX IDX_1217BD323C1884A (aisle_id), PRIMARY KEY(staffs_id, aisle_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL COMMENT \'(DC2Type:json)\', password VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_IDENTIFIER_EMAIL (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE vaccines (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE messenger_messages (id BIGINT AUTO_INCREMENT NOT NULL, body LONGTEXT NOT NULL, headers LONGTEXT NOT NULL, queue_name VARCHAR(190) NOT NULL, created_at DATETIME NOT NULL COMMENT \'(DC2Type:datetime_immutable)\', available_at DATETIME NOT NULL COMMENT \'(DC2Type:datetime_immutable)\', delivered_at DATETIME DEFAULT NULL COMMENT \'(DC2Type:datetime_immutable)\', INDEX IDX_75EA56E0FB7336F0 (queue_name), INDEX IDX_75EA56E0E3BD61CE (available_at), INDEX IDX_75EA56E016BA31DB (delivered_at), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE animals ADD CONSTRAINT FK_966C69DD43330D24 FOREIGN KEY (family_id_id) REFERENCES familiy (id)');
@@ -97,6 +98,7 @@ final class Version20251017072107 extends AbstractMigration
         $this->addSql('DROP TABLE staffs');
         $this->addSql('DROP TABLE staffs_cage');
         $this->addSql('DROP TABLE staffs_aisle');
+        $this->addSql('DROP TABLE user');
         $this->addSql('DROP TABLE vaccines');
         $this->addSql('DROP TABLE messenger_messages');
     }
