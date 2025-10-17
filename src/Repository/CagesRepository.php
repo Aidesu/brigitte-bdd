@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Cages;
+use App\Entity\Cage;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
