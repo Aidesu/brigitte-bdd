@@ -11,25 +11,25 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CageType extends AbstractType
 {
-public function buildForm(FormBuilderInterface $builder, array $options): void
-{
-$builder
-->add('number')
-->add('surface')
-->add('capacity')
-->add('aisle', EntityType::class, [
-'class' => Aisle::class,
-'choice_label' => 'name',
-'label' => 'Aisle',
-'placeholder' => 'Select aisle',
-'required' => true,
-]);
-}
+    public function buildForm(FormBuilderInterface $builder, array $options): void
+    {
+        $builder
+            ->add('number')
+            ->add('surface')
+            ->add('capacity')
+            ->add('aisle', EntityType::class, [
+                'class' => Aisle::class,
+                'choice_label' => 'name',
+                'label' => 'Aisle',
+                'placeholder' => 'Select aisle',
+                'required' => true,
+            ]);
+    }
 
-public function configureOptions(OptionsResolver $resolver): void
-{
-$resolver->setDefaults([
-'data_class' => Cage::class,
-]);
-}
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => Cage::class,
+        ]);
+    }
 }
