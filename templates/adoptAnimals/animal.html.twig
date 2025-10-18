@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AdoptAnimals{% endblock %}
+
+{% block body %}
+
+
+    <main id="adoptAnimalPage">
+                <ul>
+                    <li>
+                       <h4>Name : </h4>
+                        <p>{{ animal.name }}</p>
+                    </li>
+                    <li>
+                       <h4>Gender : </h4>
+                        {{ animal.gender == "m" ? 'M' : 'F' }}
+                    </li>
+                    
+                    <li>
+                        <h4>Origin : </h4>
+                        <p>{{ animal.origin }}</p>
+                    </li>
+                    <li>
+                        <h4>Species : </h4>
+                        <p>{{ animal.species.name }}</p>
+                    </li>
+                    <li>
+                        <h4>To adopt : </h4>
+                        <p>Available</p>
+                    </li>
+                    <li>
+                        <h4>Orders : </h4>
+                        <p>{{ animal.orders.name }}</p>
+                    </li>
+                    <li>
+                        <h4>Genus : </h4>
+                        <p>{{ animal.genus.name }}</p>
+                    </li>
+                    <li>
+                        <h4>Adopter : </h4>
+                        <p>{{ animal.adopters.firstName | default("No body") }}</p>
+                    </li>
+    </main>
+
+
+{% endblock %}

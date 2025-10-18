@@ -10,6 +10,10 @@ body {
     font-family: "KARLA", Arial, Helvetica, sans-serif;
 }
 
+main {
+    margin-top: 4rem;
+}
+
 a {
     color: aqua;
 }
@@ -106,6 +110,12 @@ button {
     border-radius: 25px;
     border: none;
     filter: drop-shadow(0 0 0.75rem rgb(6, 6, 6));
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+button:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
 }
 
 #mainPicture {
@@ -196,13 +206,13 @@ button {
 #picture2 article {
     margin-left: 5rem;
     background-color: #2e2e2e97;
+    filter: drop-shadow(0 0 0.75rem rgb(6, 6, 6));
     width: 40%;
     padding: 4rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
     border-radius: 25px;
-    filter: drop-shadow(0 0 0.75rem rgb(6, 6, 6));
 }
 
 #picture2 button {
@@ -228,9 +238,49 @@ button {
     flex-direction: column;
     gap: 2rem;
     background-color: #2e2e2e97;
+    filter: drop-shadow(0 0 0.5rem rgb(6, 6, 6));
     padding: 2rem;
-    height: 60rem;
+    height: 38rem;
     border-radius: 15px;
+}
+
+#picture4 {
+    background-image: url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YnVpbGRpbmd8ZW58MHx8MHx8fDA%3D&fm=jpg&q=60&w=3000");
+    filter: drop-shadow(0 0 0.25rem rgb(0, 0, 0));
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+}
+
+#picture4 h2 {
+    font-size: 45px;
+}
+
+#picture4 p {
+    font-size: 25px;
+}
+
+#picture4 article {
+    margin-right: 5rem;
+    background-color: #2e2e2e97;
+    width: 40%;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    border-radius: 25px;
+    filter: drop-shadow(0 0 0.75rem rgb(6, 6, 6));
+}
+
+#picture4 button {
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 25px;
 }
 
 #mainAdoptPicture {
@@ -256,15 +306,27 @@ button {
     margin: 5rem auto;
     justify-content: center;
     display: grid;
-    grid-template-columns: 45% 45%;
+    grid-template-columns: 33% 33% 33%;
+}
+
+#animalCardSection img {
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+#mainAnimalCard {
+    border: solid rgb(0, 0, 0) 4px;
+    border-radius: 15px;
 }
 
 #animalCard {
     background-color: #25252597;
     display: flex;
-    width: 30rem;
+    width: 100%;
     justify-content: space-between;
-    border-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
 #animalCard ul {
@@ -283,4 +345,110 @@ button {
 
 #animalCard p {
     font-size: 25px;
+}
+
+#adoptAnimalPage ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#adoptAnimalPage li {
+    display: flex;
+    gap: 0.4rem;
+}
+
+#mainAdoptersPicture {
+    background-image: url("https://media.discordapp.net/attachments/1388124417258688523/1428714754658009198/Dogs_Funny_Bulldog_Puppy_Bokeh_571468_1920x1080.png?ex=68f381cd&is=68f2304d&hm=facbaee465f38b43f15e256132fc6d698f94feb3aae45cad9e356aec4937c464&=&format=webp&quality=lossless&width=1440&height=810");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+#mainAdoptersPicture h2 {
+    font-size: 75px;
+    margin-left: 5rem;
+    text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+        1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+}
+
+#loginSection {
+    background-image: url("https://media.discordapp.net/attachments/1388124417258688523/1428717995592781926/Dia-Nacional-Ajolote-Portada.png?ex=68f384d2&is=68f23352&hm=ce9f62858580428fdeb83b394218c6ba3b78c26cc2330f929796326011afd85f&=&format=webp&quality=lossless&width=840&height=473");
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+
+.form {
+    background-color: #2e2e2e97;
+    filter: drop-shadow(0 0 0.5rem rgb(6, 6, 6));
+    border-radius: 25px;
+    width: 50rem;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    gap: 4rem;
+    top: 40rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.form input {
+    height: 3rem;
+    width: 18rem;
+    border-radius: 25px;
+    padding-left: 1rem;
+    background-color: #1d1d1d;
+    border: none;
+    color: white;
+    font-size: 18px;
+}
+.form label {
+    height: 2rem;
+    font-size: 25px;
+}
+
+.form li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.form ul {
+    width: 30rem;
+    height: 15rem;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
+
+.form a {
+    font-size: 20px;
+}
+
+.form h1 {
+    font-size: 45px;
+}
+
+#registerSection {
+    background-image: url("https://media.discordapp.net/attachments/1388124417258688523/1428719170211680436/KissingPenguins_1920x1080.png?ex=68f385ea&is=68f2346a&hm=d616cfc554c39d0f14c83ee723d12a63c424cdef6586a18230e51a7955bb3c83&=&format=webp&quality=lossless&width=840&height=473");
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+
+#agreeTerms input {
+    width: 1rem;
+    height: 1rem;
 }

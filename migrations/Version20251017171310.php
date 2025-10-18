@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20251016081809 extends AbstractMigration
+final class Version20251017171310 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,8 +20,9 @@ final class Version20251016081809 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
+        $this->addSql('CREATE TABLE adopters (id INT AUTO_INCREMENT NOT NULL, firth_name VARCHAR(100) NOT NULL, last_name VARCHAR(255) NOT NULL, address VARCHAR(255) NOT NULL, country VARCHAR(100) NOT NULL, city VARCHAR(255) NOT NULL, zip_code VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE aisle (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, description VARCHAR(255) NOT NULL, floor VARCHAR(255) NOT NULL, block VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE animals (id INT AUTO_INCREMENT NOT NULL, family_id_id INT DEFAULT NULL, genus_id INT DEFAULT NULL, species_id INT DEFAULT NULL, orders_id INT DEFAULT NULL, parent_id INT DEFAULT NULL, medical_booklet_id INT DEFAULT NULL, menu_id INT DEFAULT NULL, name VARCHAR(100) NOT NULL, gender VARCHAR(100) NOT NULL, origin VARCHAR(255) NOT NULL, birth_date DATE DEFAULT NULL COMMENT \'(DC2Type:date_immutable)\', arriving_date DATE DEFAULT NULL COMMENT \'(DC2Type:date_immutable)\', comment VARCHAR(500) NOT NULL, INDEX IDX_966C69DD43330D24 (family_id_id), INDEX IDX_966C69DD85C4074C (genus_id), INDEX IDX_966C69DDB2A1D860 (species_id), INDEX IDX_966C69DDCFFE9AD6 (orders_id), INDEX IDX_966C69DD727ACA70 (parent_id), UNIQUE INDEX UNIQ_966C69DD4DC06D7F (medical_booklet_id), INDEX IDX_966C69DDCCD7E912 (menu_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE animals (id INT AUTO_INCREMENT NOT NULL, family_id_id INT DEFAULT NULL, genus_id INT DEFAULT NULL, species_id INT DEFAULT NULL, orders_id INT DEFAULT NULL, parent_id INT DEFAULT NULL, medical_booklet_id INT DEFAULT NULL, menu_id INT DEFAULT NULL, adopters_id INT DEFAULT NULL, name VARCHAR(100) NOT NULL, gender VARCHAR(100) NOT NULL, origin VARCHAR(255) NOT NULL, birth_date DATE DEFAULT NULL COMMENT \'(DC2Type:date_immutable)\', arriving_date DATE DEFAULT NULL COMMENT \'(DC2Type:date_immutable)\', comment VARCHAR(500) NOT NULL, INDEX IDX_966C69DD43330D24 (family_id_id), INDEX IDX_966C69DD85C4074C (genus_id), INDEX IDX_966C69DDB2A1D860 (species_id), INDEX IDX_966C69DDCFFE9AD6 (orders_id), INDEX IDX_966C69DD727ACA70 (parent_id), UNIQUE INDEX UNIQ_966C69DD4DC06D7F (medical_booklet_id), INDEX IDX_966C69DDCCD7E912 (menu_id), INDEX IDX_966C69DD2EDD49D5 (adopters_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE cage (id INT AUTO_INCREMENT NOT NULL, aisle_id INT NOT NULL, number VARCHAR(255) NOT NULL, surface VARCHAR(255) NOT NULL, capacity VARCHAR(255) NOT NULL, INDEX IDX_56A64E5123C1884A (aisle_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE diseases (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE familiy (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(100) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
@@ -36,6 +37,7 @@ final class Version20251016081809 extends AbstractMigration
         $this->addSql('CREATE TABLE staffs (id INT AUTO_INCREMENT NOT NULL, role_id INT NOT NULL, name VARCHAR(255) NOT NULL, birth_date VARCHAR(255) NOT NULL, gender VARCHAR(255) NOT NULL, city VARCHAR(255) NOT NULL, INDEX IDX_54D5390D60322AC (role_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE staffs_cage (staffs_id INT NOT NULL, cage_id INT NOT NULL, INDEX IDX_60853C02A94E7F (staffs_id), INDEX IDX_60853C05A70E5B7 (cage_id), PRIMARY KEY(staffs_id, cage_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE staffs_aisle (staffs_id INT NOT NULL, aisle_id INT NOT NULL, INDEX IDX_1217BD32A94E7F (staffs_id), INDEX IDX_1217BD323C1884A (aisle_id), PRIMARY KEY(staffs_id, aisle_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL COMMENT \'(DC2Type:json)\', password VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_IDENTIFIER_EMAIL (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE vaccines (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE messenger_messages (id BIGINT AUTO_INCREMENT NOT NULL, body LONGTEXT NOT NULL, headers LONGTEXT NOT NULL, queue_name VARCHAR(190) NOT NULL, created_at DATETIME NOT NULL COMMENT \'(DC2Type:datetime_immutable)\', available_at DATETIME NOT NULL COMMENT \'(DC2Type:datetime_immutable)\', delivered_at DATETIME DEFAULT NULL COMMENT \'(DC2Type:datetime_immutable)\', INDEX IDX_75EA56E0FB7336F0 (queue_name), INDEX IDX_75EA56E0E3BD61CE (available_at), INDEX IDX_75EA56E016BA31DB (delivered_at), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE animals ADD CONSTRAINT FK_966C69DD43330D24 FOREIGN KEY (family_id_id) REFERENCES familiy (id)');
@@ -45,6 +47,7 @@ final class Version20251016081809 extends AbstractMigration
         $this->addSql('ALTER TABLE animals ADD CONSTRAINT FK_966C69DD727ACA70 FOREIGN KEY (parent_id) REFERENCES animals (id)');
         $this->addSql('ALTER TABLE animals ADD CONSTRAINT FK_966C69DD4DC06D7F FOREIGN KEY (medical_booklet_id) REFERENCES medical_booklet (id)');
         $this->addSql('ALTER TABLE animals ADD CONSTRAINT FK_966C69DDCCD7E912 FOREIGN KEY (menu_id) REFERENCES menu (id)');
+        $this->addSql('ALTER TABLE animals ADD CONSTRAINT FK_966C69DD2EDD49D5 FOREIGN KEY (adopters_id) REFERENCES adopters (id)');
         $this->addSql('ALTER TABLE cage ADD CONSTRAINT FK_56A64E5123C1884A FOREIGN KEY (aisle_id) REFERENCES aisle (id)');
         $this->addSql('ALTER TABLE medical_booklet_diseases ADD CONSTRAINT FK_60657964DC06D7F FOREIGN KEY (medical_booklet_id) REFERENCES medical_booklet (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE medical_booklet_diseases ADD CONSTRAINT FK_6065796E672F970 FOREIGN KEY (diseases_id) REFERENCES diseases (id) ON DELETE CASCADE');
@@ -67,6 +70,7 @@ final class Version20251016081809 extends AbstractMigration
         $this->addSql('ALTER TABLE animals DROP FOREIGN KEY FK_966C69DD727ACA70');
         $this->addSql('ALTER TABLE animals DROP FOREIGN KEY FK_966C69DD4DC06D7F');
         $this->addSql('ALTER TABLE animals DROP FOREIGN KEY FK_966C69DDCCD7E912');
+        $this->addSql('ALTER TABLE animals DROP FOREIGN KEY FK_966C69DD2EDD49D5');
         $this->addSql('ALTER TABLE cage DROP FOREIGN KEY FK_56A64E5123C1884A');
         $this->addSql('ALTER TABLE medical_booklet_diseases DROP FOREIGN KEY FK_60657964DC06D7F');
         $this->addSql('ALTER TABLE medical_booklet_diseases DROP FOREIGN KEY FK_6065796E672F970');
@@ -77,6 +81,7 @@ final class Version20251016081809 extends AbstractMigration
         $this->addSql('ALTER TABLE staffs_cage DROP FOREIGN KEY FK_60853C05A70E5B7');
         $this->addSql('ALTER TABLE staffs_aisle DROP FOREIGN KEY FK_1217BD32A94E7F');
         $this->addSql('ALTER TABLE staffs_aisle DROP FOREIGN KEY FK_1217BD323C1884A');
+        $this->addSql('DROP TABLE adopters');
         $this->addSql('DROP TABLE aisle');
         $this->addSql('DROP TABLE animals');
         $this->addSql('DROP TABLE cage');
@@ -93,6 +98,7 @@ final class Version20251016081809 extends AbstractMigration
         $this->addSql('DROP TABLE staffs');
         $this->addSql('DROP TABLE staffs_cage');
         $this->addSql('DROP TABLE staffs_aisle');
+        $this->addSql('DROP TABLE user');
         $this->addSql('DROP TABLE vaccines');
         $this->addSql('DROP TABLE messenger_messages');
     }
