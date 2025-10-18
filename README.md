@@ -65,3 +65,9 @@ learn about their background, and join the community of adopters.
 ## Update alpha 0.1.0
 
 -   Major bug fixed
+
+## Authors
+
+-   [@Aidesu](https://github.com/Aidesu)
+-   [@jOAOdvm](https://github.com/jOAOdvm)
+-   [@lola200000](https://github.com/lola200000)
