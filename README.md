@@ -57,11 +57,6 @@ learn about their background, and join the community of adopters.
 -   Merging all work to gether
 -   Fixing issues
 
-## Update alpha 0.1.5
-
--   Merging all work to gether
--   Fixing issues
-
 ## Update alpha 0.1.0
 
 -   Major bug fixed
