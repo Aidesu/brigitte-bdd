@@ -1,6 +1,6 @@
 # Sanctum Faunae
 
-![Logo](https://images.icon-icons.com/2248/PNG/512/symfony_icon_137135.png)
+![Logo](https://symfony.com/logos/symfony_white_02.png)
 
 is an animal adoption platform built with HTML, CSS, and a PHP backend powered by Symfony and Doctrine ORM.
 The project provides a clean and intuitive interface where users can explore animals available for adoption,
